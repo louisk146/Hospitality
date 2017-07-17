@@ -11,11 +11,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :postalcode
       t.string :email
       t.string :socialmedia
-      t.category :integer
-      t.latitude :float
-      t.longitude :float
-      t.image :string
-
+      
       t.timestamps null: false
     end
   end

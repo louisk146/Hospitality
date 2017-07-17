@@ -70,7 +70,7 @@ class HostingsController < ApplicationController
     private 
     	def hosting_params
     		params.require(:hosting).permit(:name, :description, :address1, :address2, :category_id,
-    										:country, :city, :county, :postalcode, :phone, :email, :image)
+    										:country, :city, :county, :postalcode, :phone, :email, :image ,:socialmedia )
     	end
 
         def is_admin?

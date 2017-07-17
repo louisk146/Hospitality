@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714210256) do
+ActiveRecord::Schema.define(version: 20170717172511) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(version: 20170714210256) do
 
   add_index "comments", ["hosting_id"], name: "index_comments_on_hosting_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "date"
+    t.string   "address1"
+    t.string   "address2"
+    t.text     "description"
+    t.string   "country"
+    t.string   "city"
+    t.string   "postalcode"
+    t.string   "email"
+    t.string   "socialmedia"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "hostings", force: :cascade do |t|
     t.string  "name"
@@ -42,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170714210256) do
     t.float   "latitude"
     t.float   "longitude"
     t.string  "image"
+    t.string  "socialmedia"
   end
 
   add_index "hostings", ["category_id"], name: "index_hostings_on_category_id"

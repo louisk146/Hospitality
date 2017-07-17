@@ -9,26 +9,33 @@
           <%= form_for @hosting do |f| %>
             <%= f.label :name %>
             <%= f.text_field :name %>
-            <%= f.label :about_me %>
-            <%= f.text_area :description %></br>
+            <%= f.label :about_me %> 
+            <%= f.text_area :description, size: "50x10" , placeholder: 
+"Consider writing things like :
+
+Who you are
+What you like
+Where you are from
+How you can be hospitable
+
+" %></br>
             <%= f.select :category_id, Category.all.map{ |f| [f.name, f.id] } %>
-            <%= f.label :address1 %>
-            <%= f.text_field :address1 %>
-            <%= f.label :address2 %>
-            <%= f.text_field :address2 %>
-            <%= f.label :country %>
-            <%= f.text_field :country %>
-            <%= f.label :city %>
-            <%= f.text_field :city %>
-            <%= f.label :county %>
-            <%= f.text_field :county %>
-            <%= f.label :postalcode %>
-            <%= f.text_field :postalcode %>
-            <%= f.label :phone %>
-            <%= f.text_field :phone %>
-            <%= f.label :email %>
-            <%= f.text_field :email %> <br />
-            <%= f.file_field :image %> <br />
+
+            <%= f.label :Country %>
+            <%= f.text_field :country,placeholder:"Country" %>
+            <%= f.label :address %>
+            <%= f.text_field :address1, placeholder: " Address line 1" %>
+            <%= f.text_field :address2, placeholder: " Address line 2 " %><br/>
+            <%= f.text_field :city , placeholder: "City" %>
+            <%= f.text_field :county, placeholder: 'County' %><br>
+            <%= f.text_field :postalcode, placeholder: 'Postalcode' %>
+            <%= f.label :emaik %>
+            <%= f.text_field :email, placeholder: "Email" %>
+            <%= f.label :further_contact_information %>
+             <%= f.text_field :phone, placeholder:"Phone number: Optional" %> <br/>
+            <%= f.text_field :socialmedia, placeholder: "Best social media contact" %>
+            <%= f.label :profile_image %>
+            <%= f.file_field :image %> <br/>
             <%= f.submit class: "btn span3 btn-realto-form btn-large" %>
           <% end %>
 
