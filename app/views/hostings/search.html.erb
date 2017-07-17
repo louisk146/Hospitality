@@ -1,0 +1,43 @@
+
+        <div class="container page-content">
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                    	<% if @hostings.blank? %>
+                    	<h3>Couldn't find a host with your search criteria! </h3>
+                    	<% else %> 
+                    	<% @hostings.each do |hosting| %>
+                        <div class="span4 box-container">
+                            <div class="holder">
+                                <a class="overlay" href="#" title="property title">
+                                    <span class="more"></span>
+                                    <% if hosting.image_url.present? %>
+                                    <%= link_to image_tag(hosting.image.url.to_s), hosting %>
+                                    <% else %>
+                                        <%= link_to image_tag("http://placehold.it/370x210"), hosting %>
+                                    <% end %>
+
+                                </a>
+                                <span class="prop-tag"><%= hosting.country %></span>
+                                <div class="prop-info">
+                                    <h3 class="prop-title"><%= hosting.name %></h3>
+                                    <ul class="more-info clearfix">
+                                        <li class="info-label clearfix"><span class="pull-left"><%= link_to hosting.name, hosting %></span>
+                                            <span class="qty pull-right"><%= hosting.email %></span></li>
+                                        <li class="info-label clearfix"><span class="pull-left">Location:</span>
+                                            <span class="qty pull-right"><%= hosting.city.capitalize %>, <%= hosting.country.upcase %></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                       <% end %>
+                      <% end %>
+        <!-- .container -->
+        
+                    </div>
+                    <!-- .adv-message  -->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

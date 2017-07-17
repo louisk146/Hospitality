@@ -1,0 +1,54 @@
+<header>
+  <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li>
+            <%= link_to root_path do %>
+              <i class="icon-home"></i>
+            <%end%>
+           </li></i></a></li>
+            <li><%= link_to "How It Works", how_it_works_path %></a>
+            <li><%= link_to "About Us", about_us_path %></a>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div id="logo-container">
+    <div class="container">
+      <div class="row">
+        <div class="span8">
+            <span class="logo-text">
+              <%= link_to 'HOSPITALITY', root_path, class: "brand" %>
+          </span>
+          <span class="tag-line hidden-phone">
+        </div> 
+        <!--/. edit profile-->
+        <div class="span4">
+          <ul class="inline pull-right">
+          <% if user_signed_in? %>
+           <ul> <%= link_to "Edit profile", edit_user_registration_path %></ul>
+           <ul> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></ul>
+            <% else %>
+            <body><%= link_to "sign in", new_user_session_path %></body>
+            <body><%= link_to "sign up", new_user_registration_path %></body>
+            <% end %>
+          </ul>
+           </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #logo-container -->
+
+</header>  
+<!-- end header -->

@@ -1,0 +1,332 @@
+
+<!-- begin header -->
+
+<div id="home-search-container">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="widget pull-right">
+          <div class="row">
+            <div class="span12 head-container">
+              <div class="row">
+                <div class="span8 hidden-phone">
+                  <h2 class="head-title">Welcome to Hospitality</h2>
+                  <p class="head-message"><strong>A site for sharing hospitality with strangers as they would for you.</strong><br />
+                 Be part of an international community. Meet new people locally and globally.</p>
+                  
+                  <p><%= link_to "List yourself now!" , new_hosting_path,class: "btn btn-large btn-realto span3 header-cta" %> </p>
+                
+                </div>
+                <div class="span4">
+                  <div class="search-form">
+                    <p> Search hospitable people <br/> by Country or City </p>
+                    
+                    <%= form_tag search_hostings_path, method: :get do |f| %>
+                    <!-- <%= text_field_tag :search, nil, placeholder: "Interests " %> -->
+                    <%= text_field_tag  :location, nil, placeholder: "Denmark, England etc." %>
+                    <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+                    <%= submit_tag 'Search' %>
+                    <% end %>
+                  
+
+                
+                  </div>
+                  <!-- .search-form -->   
+                </div>
+                <!-- .span4 -->
+              </div>
+            </div>        
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- .search-holder -->
+      </div>
+      <!-- .span12 -->
+    </div>
+    <!-- .row -->
+  </div>
+  <!-- .container -->
+</div>
+<div id="latest-properties">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2 class="secion-title">Hospitable people nearby.</h2>
+      </div>
+    </div>
+    
+    <!-- Begin Carousel -->
+    <div class="row">
+      <div id="realto-carousel" class="carousel slide span12">
+        <div class="carousel-navigation pull-right">
+          
+          <%= link_to "View all", search_hostings_path, class: "sans-serif  btn pull-left view-all-carousel" %>
+          <a class="left carousel-control pull-left" href="#realto-carousel" data-slide="prev">‹</a>
+          <a class="right carousel-control pull-right" href="#realto-carousel" data-slide="next">›</a>
+        </div>
+        <div class="carousel-inner">
+          <div class="item active">
+            <ul class="thumbnails">
+
+              <% @hostings.last(3).each do |hosting| %>
+              <li class="span4 box-container">
+                <div class="holder">
+                  <a class="overlay" title="property title" href="#">
+                    <span class="more"></span>
+                     <% if hosting.image_url.present? %>
+                                    <%= link_to image_tag(hosting.image.url.to_s), hosting %>
+                                    <% else %>
+                                        <%= link_to image_tag("http://placehold.it/370x210"), hosting %>
+                                    <% end %>
+                  </a>
+                  <span class="prop-tag"><%= hosting.city %></span>
+                  <div class="prop-info">
+                    <h3 class="prop-title"><%= link_to hosting.name, hosting %></h3>
+                    <ul class="more-info clearfix">
+                      <li class="info-label clearfix"><span class="pull-left">Location</span> <span class="qty pull-right"><%= hosting.city %></span></li>
+                      <li class="info-label clearfix"><span class="pull-left">Category</span> <span class="qty pull-right"><%= hosting.category.name %></span></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <% end %>
+              <!-- .item -->
+             </div class="item">
+              <ul class="thumbnails">
+                <% @hostings.order(:id).reverse_order.limit(3).offset(3).each do |hosting| %>
+
+              <li class="span4 box-container">
+                <div class="holder">
+                  <a class="overlay" title="property title" href="#">
+                    <span class="more"></span>
+                     <% if hosting.image_url.present? %>
+                                    <%= link_to image_tag(hosting.image.url.to_s), hosting %>
+                                    <% else %>
+                                        <%= link_to image_tag("http://placehold.it/370x210"), hosting %>
+                                    <% end %>
+                  </a>
+                  <span class="prop-tag">Same country!</span>
+                  <div class="prop-info">
+                    <h3 class="prop-title"><%= link_to hosting.name, hosting %></h3>
+                    <ul class="more-info clearfix">
+                      <li class="info-label clearfix"><span class="pull-left">Location</span> <span class="qty pull-right"><%= hosting.city %></span></li>
+                      <li class="info-label clearfix"><span class="pull-left">Category</span> <span class="qty pull-right"><%= hosting.category.name %></span></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <% end %>
+        </ul>
+      </div><!-- .carousel-inner -->
+      </div>
+    </div><!--End Carousel-->
+    
+  </div><!-- .container  -->
+</div><!-- #latest-properties  -->
+
+
+<!-- #latest-properties  -->
+<!--<div class="container">
+  <div class="row">
+    <div class="home-bottom-top">
+      <div class="span4">
+        <div class="info-box">
+          <h2 class="secion-title">Why choose us?</h2>
+          <p>Lorem ipsum dolor sit amet consectetur incididunt ut labore et dolore
+            magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+          <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa
+            accusantium doloremque laudantium, totam rem aperiam.</p>
+          <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+        </div>
+      </div> -->
+      <!-- .span4 -->
+      <!--<div class="span4">
+        <div class="info-box">
+          <h3 class="info-head">Designed for your business</h3>
+          <div class="row clearfix">
+            <div class="pull-left icons hidden-phone">
+              <i class="icon-briefcase"></i>
+            </div>
+            <div class="span3">
+              <p>Lorem ipsum dolor sit amet consectetur incididunt ut labore et dolore
+                magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+              <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+            </div>
+          </div> -->
+          <!-- .clearfix -->
+        </div>
+        <!-- .info-box -->
+        <!--
+        <div class="info-box">
+          <h3 class="info-head">Ample Customizations</h3>
+          <div class="row clearfix">
+            <div class="pull-left icons hidden-phone">
+              <i class="icon-cogs"></i>
+            </div>
+            <div class="span3">
+              <p>Lorem ipsum dolor sit amet consectetur incididunt ut labore et dolore
+                magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+              <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+            </div>
+          </div> -->
+          <!-- .clearfix -->
+        </div>
+        <!-- .info-box -->
+      </div>
+      <!-- .span4 -->
+      <!--
+      <div class="span4">
+        <div class="info-box">
+          <h3 class="info-head">Fully Responsive</h3>
+          <div class="row clearfix">
+            <div class="pull-left icons hidden-phone">
+              <i class="icon-move"></i>
+            </div>
+            <div class="span3">
+              <p>Lorem ipsum dolor sit amet consectetur incididunt ut labore et dolore
+                magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+              <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+            </div>
+          </div> -->
+          <!-- .clearfix -->
+        </div>
+        <!-- .info-box -->
+        <!--
+        <div class="info-box">
+          <h3 class="info-head">Bootstrap Compatible</h3>
+          <div class="row clearfix">
+            <div class="pull-left icons hidden-phone">
+              <i class="icon-thumbs-up"></i>
+            </div>
+            <div class="span3">
+              <p>Lorem ipsum dolor sit amet consectetur incididunt ut labore et dolore
+                magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+              <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+            </div>
+          </div> -->
+          <!-- .clearfix -->
+        </div>
+        <!-- .info-box -->
+      </div>
+      <!-- .span4 -->
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span12 box-container">
+      <div class="row adv-message clearfix">
+        <div class="pull-left span7">
+          <p class="upper-line serif">Show others around where you live. </p>
+          <p class="lower-line">.</p>
+        </div>
+        <!-- .pull-left -->
+
+        <p><%= link_to "Join as a host now!" , new_hosting_path,class: "pull-right btn btn-large btn-realto span3" %> </p>
+
+      </div>
+      <!-- .adv-message  -->
+    </div>
+  </div>
+</div>
+<!--<div class="container">
+  <div class="row">
+    <div class="span8">
+      <h2 class="secion-title">Meet our agents</h2>
+      <div class="row">
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-01.jpg" />
+            </a>
+            <p class="home-agent-name">John Doe</p>
+            <a class="serif italic" href="#" title="View profile page">View profile
+              page &raquo;</a>
+          </div> -->
+          <!-- .home-agents -->
+        <!--
+        </div>
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-02.jpg" />
+            </a>
+            <p class="home-agent-name">Susan Underwood</p>
+            <a class="serif italic" href="#" title="View profile page">View profile
+              page &raquo;</a>
+          </div> -->
+          <!-- .home-agents -->
+        
+      <!--
+        </div>
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-06.jpg" />
+            </a>
+            <p class="home-agent-name">Erik Peterson</p>
+            <a class="serif italic" href="#" title="View profile page">View profile
+              page &raquo;</a>
+          </div> 
+        -->
+          <!-- .home-agents -->
+        </div>
+        <!--
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-07.jpg" />
+            </a>
+            <p class="home-agent-name">Lu Jackson</p>
+            <a class="serif italic" href="#" title="View profile page">View profile
+              page &raquo;</a>
+          </div>
+        -->
+          <!-- .home-agents -->
+        </div>
+      </div>
+    </div>
+    <!-- .span8  -->
+    <!--
+    <div class="span4">
+      <div class="home-blog-articles widget">
+        <h2 class="secion-title">Articles from the Blog</h2>
+        <ul>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Lorem ipsum dolor sit amet, consectetur
+              adipiscing</a></li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Duis suscipit venenatis pellentesque tempor
+              libero</a></li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Etiam aliquet aliquam metus in tristique</a></li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Cras venenatis pellentesque venenatis
+              pellentesque</a></li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Vivamus vitae venenatis pellentesque nunc sed
+              nisl</a></li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">In tempus venenatis pellentesquetempor</a></li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Suspendisse vulputate venenatis pellentesque
+              quis</a></li>
+        </ul> -->
+      </div>
+    </div>
+    <!-- .span4  -->
+  </div>
+</div>
+ 
+ 
