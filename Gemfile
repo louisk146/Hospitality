@@ -30,7 +30,7 @@ gem 'fog', '~> 1.40'
 
 gem "fog-aws"
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
