@@ -12,7 +12,7 @@ gem 'geocoder'
 gem 'carrierwave'
 
 #for html font awesome icons
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 4.4.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
