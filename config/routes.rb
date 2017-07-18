@@ -2,12 +2,12 @@ Rails.application.routes.draw do
 
   resources :events
 
-
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  devise_for :users
+
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
 
   resources :hostings do
   	resources :comments, except: [:index, :show]
