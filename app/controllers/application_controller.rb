@@ -5,3 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_action :add_parameters_to_user, if: :devise_controller?
 
+  def add_parameters_to_user
+
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :country])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :country])
+end
+end
