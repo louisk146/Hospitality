@@ -13,15 +13,15 @@ class HostingsController < ApplicationController
     #end
 
 
-        #visitor_latitude = request.location.latitude
-        #visitor_longitude = request.location.longitude
+        visitor_latitude = request.location.latitude
+        visitor_longitude = request.location.longitude
 
         #developer latitude and longitude
-        visitor_latitude = 53.3811
-        visitor_longitude = -1.4701
+        #visitor_latitude = 53.3811
+        #visitor_longitude = -1.4701
 
-        @hostings = Hosting.near([visitor_latitude, visitor_longitude], 300)
-        @hostings = Hosting.all.near([visitor_latitude, visitor_longitude], 300)
+        @hostings = Hosting.near([visitor_latitude, visitor_longitude], 400)
+        @hostings = Hosting.all.near([visitor_latitude, visitor_longitude], 400)
     end
 
     def new
