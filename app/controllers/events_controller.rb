@@ -31,12 +31,12 @@ class EventsController < ApplicationController
 	private
 
 	def event_params
-		params.require(:event).permit  :name, :date, :address1, :address2, :description, :country, :city, :postalcode, :email
+		params.require(:event).permit  (:name, :date, :address1, :address2, :description, :country, :city, :postalcode, :email
       t.string :socialmedia
       t.category :integer
       t.latitude :float
       t.longitude :float
-      t.image :string 
+      t.image :string )
 	end
 
 	def find_event
