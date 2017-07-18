@@ -24,6 +24,8 @@ gem 'devise'
 #web layout functions
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
+gem "figaro"
+
 #for amazon s3 and carrierwave
 gem 'fog', '~> 1.40'
 # Use ActiveModel has_secure_password
