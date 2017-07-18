@@ -6,12 +6,13 @@ class ApplicationController < ActionController::Base
   before_action :add_parameters_to_user, if: :devise_controller?
 
   def add_parameters_to_user
-  	devise_parameter_sanitizer.for(:sign_up)<< :first_name
-  	devise_parameter_sanitizer.for(:sign_up) << :last_name
-  	devise_parameter_sanitizer.for(:sign_up) << :country
-  	devise_parameter_sanitizer.for(:account_update) << :first_name
-  	devise_parameter_sanitizer.for(:account_update) << :last_name
-  	devise_parameter_sanitizer.for(:account_update) << :country
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:nfirst_name) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:last_name) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:country) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nfirst_name) }
+    devise_parameter_sanitizer.for(:account_up) { |u| u.permit(:last_name) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:country) }
+  end
 
-end
-end
+
+  	
