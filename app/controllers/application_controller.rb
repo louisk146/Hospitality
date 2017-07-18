@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def add_parameters_to_user
-    devise_parameter_sanitizer.for(:sign_up)<< :first_name
-    devise_parameter_sanitizer.for(:sign_up) << :last_name
-    devise_parameter_sanitizer.for(:sign_up) << :country
-    devise_parameter_sanitizer.for(:account_update) << :first_name
-    devise_parameter_sanitizer.for(:account_update) << :last_name
-    devise_parameter_sanitizer.for(:account_update) << :country
+    devise_parameter_sanitizer.permit(:sign_up)<< :first_name
+    devise_parameter_sanitizer.permit(:sign_up) << :last_name
+    devise_parameter_sanitizer.permit(:sign_up) << :country
+    devise_parameter_sanitizer.permit(:account_update) << :first_name
+    devise_parameter_sanitizer.permit(:account_update) << :last_name
+    devise_parameter_sanitizer.permit(:account_update) << :country
   end
 
  protected
