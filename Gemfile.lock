@@ -332,6 +332,7 @@ DEPENDENCIES
   devise
   figaro
   fog (~> 1.40)
+  fog-aws
   font-awesome-rails
   geocoder
   jbuilder (~> 2.0)
