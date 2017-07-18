@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:last_name) }
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:country) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nfirst_name) }
-    devise_parameter_sanitizer.for(:account_up) { |u| u.permit(:last_name) }
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:country) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:last_name) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:country) }
+  
   end
 
 
