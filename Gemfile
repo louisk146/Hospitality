@@ -33,6 +33,7 @@ gem "fog-aws"
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+gem 'mailboxer'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
