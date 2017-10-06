@@ -1,0 +1,45 @@
+
+<div class="container page-content">
+  <div class="row">
+    <div class="span8">
+      <div class="box-container">
+        <div class="padding30">
+          <h2 class="page-title">List yourself</h2>  
+
+          <%= form_for @hosting do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <%= f.label :about_me %>
+            <%= f.text_area :description %></br>
+            <%= f.select :category_id, Category.all.map{ |f| [f.name, f.id] } %>
+            <%= f.label :address1 %>
+            <%= f.text_field :address1 %>
+            <%= f.label :address2 %>
+            <%= f.text_field :address2 %>
+            <%= f.label :country %>
+            <%= f.text_field :country %>
+            <%= f.label :city %>
+            <%= f.text_field :city %>
+            <%= f.label :county %>
+            <%= f.text_field :county %>
+            <%= f.label :postalcode %>
+            <%= f.text_field :postalcode %>
+            <%= f.label :phone %>
+            <%= f.text_field :phone %>
+            <%= f.label :email %>
+            <%= f.text_field :email %> <br />
+            <%= f.file_field :image %> <br />
+            <%= f.submit class: "btn span3 btn-realto-form btn-large" %>
+          <% end %>
+
+          
+        </div>
+      </div>
+    </div>
+    <!-- .span8 -->
+    <!-- .span4 -->
+  </div>
+  <!-- .row -->
+</div>
+<!-- .container -->
+ 

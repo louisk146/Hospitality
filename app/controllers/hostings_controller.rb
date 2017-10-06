@@ -13,12 +13,12 @@ class HostingsController < ApplicationController
     #end
 
 
-        visitor_latitude = request.location.latitude
-        visitor_longitude = request.location.longitude
+        #visitor_latitude = request.location.latitude
+        #visitor_longitude = request.location.longitude
 
         #developer latitude and longitude
-        #visitor_latitude = 53.3811
-        #visitor_longitude = -1.4701
+        visitor_latitude = 53.3811
+        visitor_longitude = -1.4701
 
         @hostings = Hosting.near([visitor_latitude, visitor_longitude], 400)
         @hostings = Hosting.all.near([visitor_latitude, visitor_longitude], 400)
@@ -53,6 +53,10 @@ class HostingsController < ApplicationController
 
     def edit
         @hosting =Hosting.find(params[:id])
+
+        unless current_user == @hosting.user
+        redirect_to(@hosting, notice: "You cannot edit this host") and return
+        end
     end
 
     def update
@@ -74,7 +78,7 @@ class HostingsController < ApplicationController
     	end
 
         def is_admin?
-            if !current_user.try(:admin?)
+          if !current_user.try(:admin?)
                 flash[:danger] = "You are not authorized to edit or delete."
                 redirect_to root_path
             end

@@ -11,12 +11,18 @@
             <div class="clearfix">
               <div class="clearfix padding30">
                 <h2 class="prop-title pull-left margin0"><%= @hosting.name %>
-                  <% if current_user.try(:admin?) %>
-                <small><%= link_to "Edit", edit_hosting_path, class: "btn btn-primary btn-mini" %></small>
-                <small><%= link_to "Delete", hosting_path, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "btn btn-danger btn-mini" %></small>
-                <% else %>
-                <% end %>
                   
+  
+                <small><%= link_to "Edit", edit_hosting_path, class: "btn btn-primary btn-mini" %></small>
+             
+
+ 
+                <small><%= link_to "Delete", hosting_path, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "btn btn-danger btn-mini" %></small>
+                         
+
+
+                <!-- if hosting.user == current_user -->
+
                 </h2>
                 <span class="prop-price pull-right serif italic">*****</span>
               </div>
@@ -32,15 +38,15 @@
                     <span class="qty pull-right"><%= @hosting.phone %></span></li>
                 </ul>
                 <ul class="more-info pull-right span6">
-                  <li class="info-label clearfix"><span class="pull-left">Address:</span>
+                  <li class="info-label clearfix"><span class="pull-left">location:</span>
                     <span class="qty pull-right">
 
-                      <%= @hosting.address1 %>,
-                      <%= @hosting.address2 %>,
-                      <%= @hosting.country  %>,
-                      <%= @hosting.city     %>,
-                      <%= @hosting.county   %>,
-                      <%= @hosting.postalcode %>.
+                     <!-- <%= @hosting.address1 %>, -->
+                     <!-- <%= @hosting.address2 %>, -->
+                      <%= @hosting.country  %>, 
+                      <%= @hosting.city     %>, 
+                    <!-- <%= @hosting.county   %> -->
+                    <!-- <%= @hosting.postalcode %>. -->
 
                     </span></li>
                 <!--  <li class="info-label clearfix"><span class="pull-left">Listing

@@ -7,8 +7,19 @@
           <h2 class="page-title">List yourself</h2>  
 
           <%= form_for @hosting do |f| %>
+            <%= f.label :profile_image %>
+            <%= f.file_field :image %> 
             <%= f.label :name %>
             <%= f.text_field :name %>
+            
+            <div class="field">
+            <b>Your contact information will be visible to others. </b>
+          </div>
+            <%= f.label :contact_information %> 
+            <%= f.text_field :phone, placeholder:"Phone number: Optional" %> <br/>
+            <%= f.text_field :socialmedia, placeholder: "social media contact or personal portfolio" %>
+            <%= f.label :email %>
+            <%= f.text_field :email, placeholder: "Email" %> 
             <%= f.label :about_me %> 
             <%= f.text_area :description, size: "50x10" , placeholder: 
 "Consider writing things like :
@@ -20,22 +31,20 @@ How you can be hospitable
 
 " %></br>
             <%= f.select :category_id, Category.all.map{ |f| [f.name, f.id] } %>
-
             <%= f.label :Country %>
             <%= f.text_field :country,placeholder:"Country" %>
+            <%= f.text_field :city , placeholder: "City" %>
+
+            
+          <div class="field">
+            <b> Only your country and city will be visible to others. </b>
+          </div>
             <%= f.label :address %>
             <%= f.text_field :address1, placeholder: " Address line 1" %>
             <%= f.text_field :address2, placeholder: " Address line 2 " %><br/>
-            <%= f.text_field :city , placeholder: "City" %>
-            <%= f.text_field :county, placeholder: 'County' %><br>
-            <%= f.text_field :postalcode, placeholder: 'Postalcode' %>
-            <%= f.label :emaik %>
-            <%= f.text_field :email, placeholder: "Email" %>
-            <%= f.label :further_contact_information %>
-             <%= f.text_field :phone, placeholder:"Phone number: Optional" %> <br/>
-            <%= f.text_field :socialmedia, placeholder: "Best social media contact" %>
-            <%= f.label :profile_image %>
-            <%= f.file_field :image %> <br/>
+            <%= f.text_field :county, placeholder: 'County' %><br>  
+            <%= f.text_field :postalcode, placeholder: 'Postalcode' %>   
+            <br/>
             <%= f.submit class: "btn span3 btn-realto-form btn-large" %>
           <% end %>
 

@@ -15,10 +15,20 @@
                  Be part of an international community.</p>
                   
                   <p><%= link_to "List yourself now!" , new_hosting_path,class: "btn btn-large btn-realto span3 header-cta" %> </p>
+                  <!-- <p><%= link_to "List your event now!" , new_event_path,class: "btn btn-large btn-realto span3 header-cta" %> </p> -->
                 
                 </div>
                 <div class="span4">
                   <div class="search-form">
+
+
+ <body>
+    <video id="bgVideo" autoplay loop poster="image.png">
+      <!-- Video is embedded in the WEBM format -->
+      <source src="video.webm" type="video/webm">
+    </video>
+  </body>
+
                     <p> Search hospitable people <br/> by Country or City </p>
                     
                     <%= form_tag search_hostings_path, method: :get do |f| %>
@@ -60,7 +70,7 @@
       <div id="realto-carousel" class="carousel slide span12">
         <div class="carousel-navigation pull-right">
           
-          <%= link_to "View all", search_hostings_path, class: "sans-serif  btn pull-left view-all-carousel" %>
+          <%= link_to "View all", search_hostings_path, class: "sans-serif  btn btn-large view-all-carousel" %> 
           <a class="left carousel-control pull-left" href="#realto-carousel" data-slide="prev">‹</a>
           <a class="right carousel-control pull-right" href="#realto-carousel" data-slide="next">›</a>
         </div>
@@ -217,12 +227,12 @@
     <div class="span12 box-container">
       <div class="row adv-message clearfix">
         <div class="pull-left span7">
-          <p class="upper-line serif">Show others around where you live. </p>
+          <p class="upper-line serif">Find anyone in the community. </p>
           <p class="lower-line">.</p>
         </div>
         <!-- .pull-left -->
 
-        <p><%= link_to "Join as a host now!" , new_hosting_path,class: "pull-right btn btn-large btn-realto span3" %> </p>
+        <p><%= link_to "View all hosts" ,search_hostings_path,class: "pull-right btn btn-large btn-realto span3" %> </p>
 
       </div>
       <!-- .adv-message  -->
