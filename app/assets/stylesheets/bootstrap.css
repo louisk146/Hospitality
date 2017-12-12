@@ -83,6 +83,7 @@ sup {
 sub {
   bottom: -0.25em;
 }
+
 img {
   /* Responsive images (ensure images don't scale beyond their parents) */
 
@@ -98,11 +99,24 @@ img {
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
+  
 }
+
+
 #map_canvas img,
 .google-maps img {
   max-width: none;
 }
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+
 button,
 input,
 select,
@@ -163,6 +177,7 @@ a:hover {
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
+
 .img-polaroid {
   padding: 4px;
   background-color: #fff;
@@ -172,11 +187,13 @@ a:hover {
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
 .img-circle {
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
 }
+
 .row {
   margin-left: -20px;
   *zoom: 1;
@@ -770,7 +787,7 @@ pre code {
   vertical-align: baseline;
   white-space: nowrap;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #999999;
+  background-color: #ffffff;
 }
 .label {
   -webkit-border-radius: 3px;
@@ -3182,7 +3199,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar-inverse .brand,
 .navbar-inverse .nav > li > a {
-  color: #999999;
+  color: #fff7f7;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 .navbar-inverse .brand:hover,
@@ -4363,6 +4380,7 @@ a.thumbnail:hover {
   display: block;
   line-height: 1;
 }
+
 .carousel .active,
 .carousel .next,
 .carousel .prev {

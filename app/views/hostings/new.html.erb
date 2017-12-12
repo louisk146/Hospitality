@@ -2,11 +2,13 @@
 <div class="container page-content">
   <div class="row">
     <div class="span8">
-      <div class="box-container">
+      <div class="box-container2">
         <div class="padding30">
+          
           <h2 class="page-title">List yourself</h2>  
-
+          
           <%= form_for @hosting do |f| %>
+          
             <%= f.label :profile_image %>
             <%= f.file_field :image %> 
             <%= f.label :name %>
@@ -14,12 +16,11 @@
             
             <div class="field">
             <b>Your contact information will be visible to others. </b>
-          </div>
-            <%= f.label :contact_information %> 
-            <%= f.text_field :phone, placeholder:"Phone number: Optional" %> <br/>
-            <%= f.text_field :socialmedia, placeholder: "social media contact or personal portfolio" %>
+            </div>
             <%= f.label :email %>
-            <%= f.text_field :email, placeholder: "Email" %> 
+            <%= f.text_field :email, placeholder: "Email" %> <br/>
+            <%= f.label :Alternative_contact %>
+            <%= f.text_field :phone, placeholder:"Whatsapp, facebook Optional" %> <br/>
             <%= f.label :about_me %> 
             <%= f.text_area :description, size: "50x10" , placeholder: 
 "Consider writing things like :
@@ -29,7 +30,12 @@ What you like
 Where you are from
 How you can be hospitable
 
-" %></br>
+" %></br>   <div class="field">
+            A link to your work, portfolio or interests </br> 
+            </div>
+            <%= f.text_field :socialmedia, placeholder: "Personal site/instagram etc" %>
+            </br>
+            
             <%= f.select :category_id, Category.all.map{ |f| [f.name, f.id] } %>
             <%= f.label :Country %>
             <%= f.text_field :country,placeholder:"Country" %>

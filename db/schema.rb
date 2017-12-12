@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -22,10 +21,9 @@ ActiveRecord::Schema.define(version: 20170717172511) do
     t.integer "rating"
     t.integer "hosting_id"
     t.integer "user_id"
+    t.index ["hosting_id"], name: "index_comments_on_hosting_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
-  add_index "comments", ["hosting_id"], name: "index_comments_on_hosting_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -58,9 +56,8 @@ ActiveRecord::Schema.define(version: 20170717172511) do
     t.float   "longitude"
     t.string  "image"
     t.string  "socialmedia"
+    t.index ["category_id"], name: "index_hostings_on_category_id"
   end
-
-  add_index "hostings", ["category_id"], name: "index_hostings_on_category_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -79,9 +76,8 @@ ActiveRecord::Schema.define(version: 20170717172511) do
     t.string   "last_name"
     t.string   "country"
     t.boolean  "admin",                  default: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

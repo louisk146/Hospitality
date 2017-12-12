@@ -1,6 +1,5 @@
 
 <!-- begin header -->
-
 <div id="home-search-container">
   <div class="container">
     <div class="row">
@@ -10,35 +9,30 @@
             <div class="span12 head-container">
               <div class="row">
                 <div class="span8 hidden-phone">
-                  <h2 class="head-title">Welcome to Hospitality</h2>
-                  <p class="head-message"><strong>A site for sharing hospitality with new people locally and globally</strong><br />
-                 Be part of an international community.</p>
-                  
-                  <p><%= link_to "List yourself now!" , new_hosting_path,class: "btn btn-large btn-realto span3 header-cta" %> </p>
+                  <h2 class="head-title"><mark>Welcome to Hospitality </mark> </h2>
+                   <p class="head-message"><strong> <mark>A new international movement to share hospitality. </mark></strong><br />
+                 </mark><mark>Welcome likeminded people into your world. Join now. </mark></p>
+                  <%= link_to "list yourself now!" , new_hosting_path,class: "btn btn-large btn-realto head-message" %> 
                   <!-- <p><%= link_to "List your event now!" , new_event_path,class: "btn btn-large btn-realto span3 header-cta" %> </p> -->
                 
                 </div>
-                <div class="span4">
+                <div class="span3">
                   <div class="search-form">
-
-
- <body>
+     <body>
     <video id="bgVideo" autoplay loop poster="image.png">
       <!-- Video is embedded in the WEBM format -->
-      <source src="video.webm" type="video/webm">
+    <source src="video.webm" type="video/webm">
     </video>
-  </body>
-
-                    <p> Search hospitable people <br/> by Country or City </p>
+  </body> 
+                    <p> Search hospitable people by Country. </p>
                     
                     <%= form_tag search_hostings_path, method: :get do |f| %>
                     <!-- <%= text_field_tag :search, nil, placeholder: "Interests " %> -->
                     <%= text_field_tag  :location, nil, placeholder: "Denmark, England etc." %>
-                    <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+                    <!--<%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>--!>
                     <%= submit_tag 'Search' %>
                     <% end %>
                   
-
                 
                   </div>
                   <!-- .search-form -->   
@@ -61,32 +55,32 @@
   <div class="container">
     <div class="row">
       <div class="span12">
-        <h2 class="secion-title">Hospitable people nearby.</h2>
+        <h2 class="secion-title"><mark>Hospitable people near you: </mark></h2>
+      <div class="carousel-navigation pull-right">
+          <a class="left carousel-control pull-left" href="#realto-carousel" data-slide="prev">‹</a>
+          <a class="right carousel-control pull-right" href="#realto-carousel" data-slide="next">›</a>
+        </div>
       </div>
     </div>
     
     <!-- Begin Carousel -->
     <div class="row">
       <div id="realto-carousel" class="carousel slide span12">
-        <div class="carousel-navigation pull-right">
-          
-          <%= link_to "View all", search_hostings_path, class: "sans-serif  btn btn-large view-all-carousel" %> 
-          <a class="left carousel-control pull-left" href="#realto-carousel" data-slide="prev">‹</a>
-          <a class="right carousel-control pull-right" href="#realto-carousel" data-slide="next">›</a>
-        </div>
+        
         <div class="carousel-inner">
           <div class="item active">
             <ul class="thumbnails">
-
               <% @hostings.last(3).each do |hosting| %>
+              
               <li class="span4 box-container">
                 <div class="holder">
                   <a class="overlay" title="property title" href="#">
                     <span class="more"></span>
+                  
                      <% if hosting.image_url.present? %>
                                     <%= link_to image_tag(hosting.image.url.to_s), hosting %>
                                     <% else %>
-                                        <%= link_to image_tag("http://placehold.it/370x210"), hosting %>
+                                    <%= link_to image_tag("http://placehold.it/370x210"), hosting %>
                                     <% end %>
                   </a>
                   <span class="prop-tag"><%= hosting.city %></span>
@@ -94,13 +88,14 @@
                     <h3 class="prop-title"><%= link_to hosting.name, hosting %></h3>
                     <ul class="more-info clearfix">
                       <li class="info-label clearfix"><span class="pull-left">Location</span> <span class="qty pull-right"><%= hosting.city %></span></li>
-                      <li class="info-label clearfix"><span class="pull-left">Category</span> <span class="qty pull-right"><%= hosting.category.name %></span></li>
+                     <li class="info-label clearfix"><span class="pull-left">Category</span> <span class="qty pull-right"><%= hosting.category.name %></span></li> 
                     </ul>
                   </div>
                 </div>
 
                 <% end %>
               <!-- .item -->
+              
              </div class="item">
               <ul class="thumbnails">
                 <% @hostings.order(:id).reverse_order.limit(3).offset(3).each do |hosting| %>
@@ -120,7 +115,7 @@
                     <h3 class="prop-title"><%= link_to hosting.name, hosting %></h3>
                     <ul class="more-info clearfix">
                       <li class="info-label clearfix"><span class="pull-left">Location</span> <span class="qty pull-right"><%= hosting.city %></span></li>
-                      <li class="info-label clearfix"><span class="pull-left">Category</span> <span class="qty pull-right"><%= hosting.category.name %></span></li>
+                     <li class="info-label clearfix"><span class="pull-left">Category</span> <span class="qty pull-right"><%= hosting.category.name %></span></li> 
                     </ul>
                   </div>
                 </div>
@@ -224,15 +219,15 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="span12 box-container">
+    <div class="span4 box-container">
       <div class="row adv-message clearfix">
         <div class="pull-left span7">
-          <p class="upper-line serif">Find anyone in the community. </p>
+          <p class="secion-title bold">Still looking? Look a little more...</p>
           <p class="lower-line">.</p>
         </div>
         <!-- .pull-left -->
 
-        <p><%= link_to "View all hosts" ,search_hostings_path,class: "pull-right btn btn-large btn-realto span3" %> </p>
+        <p><%= link_to "View all hosts" ,search_hostings_path,class: "pull-right btn btn-realto span3" %> </p>
 
       </div>
       <!-- .adv-message  -->

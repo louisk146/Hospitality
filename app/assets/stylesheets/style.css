@@ -4,11 +4,18 @@
 ! General
 ========================================================== */
 body {
-	background: #f7f7f7;
+	background: #0a0909;
+	color: #fceb0f;
+}
+
+body2 {
+	background: #000000;
 	color: #888;
 }
+
 a {
-	color: #5FB000;
+	font-family: helvetica;
+	color: #f2f2f2;
 	outline: 0;
 	-webkit-transition: all 0.25s ease-out 0s;
 	-moz-transition: all 0.25s ease-out 0s;
@@ -17,7 +24,8 @@ a {
 	transition: all 0.25s ease-out 0s;
 }
 a:hover {
-	color: #7DC328;
+	
+	color: #fff600;
 	text-decoration: none;
 	outline: 0;
 }
@@ -27,7 +35,7 @@ h1 {
 	line-height: 36px;
 	text-transform: uppercase;
 	margin: 0 0 20px;
-	color: #363636;
+	color: #f7f7f7;
 }
 h2 {
 	font-size: 24px;
@@ -35,22 +43,22 @@ h2 {
 	line-height: 28px;
 	text-transform: uppercase;
 	margin: 20px 0;
-	color: #363636;
+	color: #fceb0f;
 }
 h3 {
 	font-size: 18px;
 	font-weight: 200;
-	line-height: 22px;
+	line-height: 10px;
 	text-transform: uppercase;
-	margin: 20px 0;
-	color: #363636;
+	margin: 2px 0;
+	color: #fceb0f;
 }
 h4 {
 	font-size: 16px;
 	font-weight: 200;
 	line-height: 20px;
 	text-transform: uppercase;
-	color: #363636;
+	color: #f7f7f7;
 	margin: 20px 0;
 }
 h5 {
@@ -58,11 +66,11 @@ h5 {
 	font-weight: 200;
 	line-height: 18px;
 	text-transform: uppercase;
-	color: #363636;
+	color: #f7f7f7;
 	margin: 20px 0;
 }
 h6 {
-	color: #363636;
+	color: #f7f7f7;
 	font-size: 12px;
 	line-height: 18px;
 	text-transform: uppercase;
@@ -85,13 +93,13 @@ iframe {
 	        box-sizing: border-box; /* css3 */
 }
 .padding10 {
-	padding: 10px;
+	padding: 2px;
 }
 .padding20 {
 	padding: 20px;
 }
 .padding30 {
-	padding: 30px;
+	padding: 2px;
 }
 .padding010 {
 	padding: 0 10px;
@@ -115,7 +123,7 @@ iframe {
 	margin: 0;
 }
 .margin10 {
-	margin: 10px;
+	margin: 0px;
 }
 .margin20 {
 	margin: 20px;
@@ -137,18 +145,34 @@ iframe {
 .secion-title,
 .info-head,
 .widget-title {
+	font-family: helvetica;
 	font-size: 18px;
 	font-weight: 200;
 	line-height: 22px;
-	text-transform: uppercase;
+	text-transform: none;
 	margin: 0 0 20px;
-	color: #363636;
+	color: white;
 }
+
+mark {
+	font-family: helvetica;
+    background-color: black;
+    color: white;
+    opacity: 0.77;
+}
+
+mark2 {
+	font-family: helvetica;
+    background-color: black;
+    color: white;
+    
+}
+
 /* ==========================================================
 ! Typography
 ========================================================== */
 .serif {
-	font-family: Georgia, serif;
+	font-family: Helvetica, serif;
 }
 .italic {
 	font-style: italic;
@@ -239,10 +263,10 @@ a.brand {
 }
 .head-title, .head-message {
 	margin: 0;
-	padding: 10px 60px 10px 10px;
+	padding: 5px 5px 5px 5px;
 	position: relative;
-	top: 90px;
-	left: 30px;
+	top: 200px;
+	left: 10px;
 }
 .header-cta  {
 	position: relative;
@@ -252,7 +276,7 @@ a.brand {
 }
 .head-title {
 	color: white;
-	font-size: 48px;
+	font-size: 36px;
 	line-height: 44px;
 	font-weight: bold;
 	text-transform: none;
@@ -261,6 +285,8 @@ a.brand {
 	color: white;
 	font-size: 18px;
 }
+
+
 /* ==========================================================
 ! Pages
 ========================================================== */
@@ -272,48 +298,63 @@ a.brand {
 ! Properties Container
 ========================================================== */
 .box-container {
-	background: #fff;
+	background: #000000;
 	position: relative;
-	margin-bottom: 30px;
-	border-bottom: 2px solid #EAEAEA;
+	padding: 7px 7px;
+	border: 0.5px solid #ffffff;
 }
+.box-container2 {
+	background: #080063;
+	position: relative;
+	padding: 7px 7px;
+	border: 0.0px solid #ffffff;
+	opacity: 1.0;
+}
+
 .prop-info .prop-title {
-	font-size: 18px;
+	font-size: 14px;
     font-weight: 200;
-    line-height: 22px;
+    line-height: 5px;
     text-transform: uppercase;
-    margin: 0 0 20px;
+    margin: 0 0 0px;
 }
 .prop-info {
-	padding: 20px;
+	padding-top: 10px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 .prop-info.span4 {
 	padding: 30px 30px 30px 0;
 }
 .prop-tag {
-    background: none repeat scroll 0 0 #252525;
-    color: #FFFFFF;
+    background: #0fce83; /* For browsers that do not support gradients */ /* For Safari 5.1 to 6.0 */
+    color: white;
     left: 0;
-    padding: 7px 10px;
+    padding: 10px 10px;
     position: absolute;
+    opacity: 0.98;
     top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .more-info {
-	padding: 0;
-	margin: 0;
+	padding: 1;
+	margin: 20;
 	list-style: none;
 }
 .more-info > li {
-	border-bottom: 1px dashed #E9E9E9;
-    padding: 5px 0;	
+	border-bottom: 1px #E9E9E9;
+    padding: 0px 0;	
 }
 .more-info .info-label {
     font-weight: bold;
-    color: #363636;
+    color: #ffffff;
+}
+.more-info2 .info-label2 {
+    font-weight: bold;
+    color: black;
 }
 .more-info .qty {
     font-weight: normal;
@@ -344,13 +385,30 @@ a.overlay:hover .more {
 	opacity: 0.5;
 	filter: alpha(opacity=50);
 }
+
+img {
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+img2 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+
+
 /* ==========================================================
 ! Properties Form
 ========================================================== */
 #home-search-container {
 	padding: 20px 0;
-	min-height: 340px;
+	min-height: 400px;
 	background: url('hero_image.jpg') no-repeat center center;
+	background-size: cover
 }
 .head-title, .head-message, .header-cta {
 	-moz-animation: fadein 3s; /* Firefox */
@@ -471,9 +529,9 @@ select {
 	right: 0;
 }
 .view-all-carousel {
-	left: -10px;
+	left: 10px;
     position: relative;
-    top: -35px;
+    top: -50px;
 }
 /* ==========================================================
 ! Info Box Container
@@ -522,6 +580,7 @@ select {
 .home-agents img {
 	margin-bottom: 10px;
 }
+
 .agent-box.widget h3,
 .agent-box.widget ul {
 	margin: 0 0 0 30px;
@@ -583,18 +642,18 @@ ul.media-list li.media div.comment-holder {
 ! Buttons
 ========================================================== */
 .btn-realto {
-	background: #5FB000;
+	background: #f23030;
 	color: #fff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	border: 1px solid #559B00;
+	border: 1px solid #f23030;
 	border-radius: 4px;
 	margin-bottom: 10px;
 }
 .btn-realto-form {
-	background: #5FB000;
+	background: #f23030;
 	color: #fff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	border: 1px solid #559B00;
+	border: 1px solid #ff4c4c;
 	border-radius: 4px;
 	padding: 8px 0;
 	margin: 10px 0 0;
@@ -602,14 +661,14 @@ ul.media-list li.media div.comment-holder {
 .btn-realto:hover,
 .btn-realto-form:hover,
 .btn-realto:hover {
-	background: #7DC328;
+	background: #ff4c4c;
 	color: #fff;
 }
 .btn-realto {
-	background: #5FB000;
+	background: #f23030;
 	color: #fff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	border: 1px solid #559B00;
+	border: 1px solid #f23030;
 }
 /* ==========================================================
 ! Sidebars
@@ -712,11 +771,12 @@ footer a {
 	height: 40px;
 	width: auto;
 }
+
 /* ==========================================================
 ! Property Page
 ========================================================== */
 .prop-price, .prop-title {
-	font-size: 22px;
+	font-size: 18px;
 }
 .map iframe {
     height: 312px;
@@ -790,7 +850,7 @@ h2.post-title {
 	}
 	.head-title, .head-message {
 		margin: 0;
-		padding: 10px 60px 10px 10px;
+		padding: 10px 10px 10px 10px;
 		position: relative;
 		top: 40px;
 		left: 30px;
@@ -833,7 +893,7 @@ h2.post-title {
 		width: 100%;
 	}
 	.prop-info.span4 {
-		padding: 20px;
+		padding-top: 20px;
 	}
 	.prop-price {
 		margin-top: 20px;

@@ -1,54 +1,50 @@
 
     <div class="container page-content">
+     <%= image_tag @hosting.image_url %>
       <div class="row">
         <div class="span8">
           <div class="box-container">
           
-              <%= image_tag @hosting.image_url %>
-
-            </div><!-- .cycle-slideshow -->
+            <!-- .cycle-slideshow -->
             <div id="adv-custom-pager"></div>
             <div class="clearfix">
-              <div class="clearfix padding30">
-                <h2 class="prop-title pull-left margin0"><%= @hosting.name %>
-                  
-  
-                <small><%= link_to "Edit", edit_hosting_path, class: "btn btn-primary btn-mini" %></small>
-             
-
- 
-                <small><%= link_to "Delete", hosting_path, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "btn btn-danger btn-mini" %></small>
-                         
-
-
-                <!-- if hosting.user == current_user -->
-
+              <div class="clearfix padding10">
+                <h2 class="prop-title pull-left margin10"><%= @hosting.name %>
                 </h2>
-                <span class="prop-price pull-right serif italic">*****</span>
+                
+                <% if current_user.try(:admin?) %>
+                <h2 class="prop-title pull-right margin10">
+                <small><%= link_to "Edit", edit_hosting_path, class: "btn btn-primary btn-mini" %></small>
+                <small><%= link_to "Delete", hosting_path, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "btn btn-danger btn-mini" %></small>
+                </h2>
+                <% else %>
+                <% end %>
+                
+                
+                <span class="prop-price pull-left serif italic">*</span>
               </div>
-              <div class="clearfix padding030 row-fluid">
+              <div class="clearfix padding10 row-fluid">
                 <ul class="more-info pull-left span6">
-                  <li class="info-label clearfix"><span class="pull-left">Category</span>
-                    <span class="qty pull-right"><%= @hosting.category.name %></span></li>
-                     <li class="info-label clearfix"><span class="pull-left">Email</span>
+                  <li class="info-label2 clearfix"><span class="pull-left">Category</span>
+                  <span class="qty pull-right"><%= @hosting.category.name %></span></li> 
+                     <li class="info-label2 clearfix"><span class="pull-left">Email</span>
                     <span class="qty pull-right"><%= @hosting.email %></span></li>
-                  <li class="info-label clearfix"><span class="pull-left">Social media</span>
+                  <li class="info-label2 clearfix"><span class="pull-left">Portfolio</span>
                     <span class="qty pull-right"></span><%= @hosting.socialmedia %></li>
-                  <li class="info-label clearfix"><span class="pull-left">Phone</span>
+                  <li class="info-label2 clearfix"><span class="pull-left">Phone</span>
                     <span class="qty pull-right"><%= @hosting.phone %></span></li>
                 </ul>
-                <ul class="more-info pull-right span6">
+                <ul class="more-info2 pull-right2 span6">
                   <li class="info-label clearfix"><span class="pull-left">location:</span>
-                    <span class="qty pull-right">
-
-                     <!-- <%= @hosting.address1 %>, -->
-                     <!-- <%= @hosting.address2 %>, -->
+                    <!--<span class="qty pull-right">-->
                       <%= @hosting.country  %>, 
                       <%= @hosting.city     %>, 
+                     <!-- <%= @hosting.address1 %>, -->
+                     <!-- <%= @hosting.address2 %>, -->
                     <!-- <%= @hosting.county   %> -->
                     <!-- <%= @hosting.postalcode %>. -->
 
-                    </span></li>
+                    <!--</span>--></li>
                 <!--  <li class="info-label clearfix"><span class="pull-left">Listing
                     type:</span>
                     <span class="qty pull-right"></span></li>
@@ -63,7 +59,6 @@
                 <p> <%= @hosting.description %> </p>
               </div>
                  <div class="clearfix padding30">
-                  <%= link_to "write a comment", new_hosting_comment_path(@hosting), class: "btn btn-small btn-realto" %>
                 <h3>Comments</h3>
                   <% if @comments.blank? %>
                    <p>No comments yet</p>
@@ -77,6 +72,7 @@
                           <tbody> 
                       <% @comments.each do |comment| %>
                   <tr>
+                  
                     <td>
                       <h5> <%= "#{comment.user.first_name} #{comment.user.last_name} #{comment.user.country}" %></h5>
                     </td>
@@ -88,6 +84,8 @@
                  </tbody>
                 </table> 
               <% end %>
+              </mark>
+              <%= link_to "write a comment", new_hosting_comment_path(@hosting), class: "btn btn-small btn-realto" %>
               </div>
             </div>
           </div>
@@ -108,5 +106,5 @@
         </div>
       </div>
     </div>
-     
+  </div>
   
