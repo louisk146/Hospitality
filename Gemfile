@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '>= 5.0.0.rc2', '< 5.1'
+
+gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -31,7 +32,6 @@ gem "fog-aws"
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
-gem 'mailboxer'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -50,8 +50,6 @@ end
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
-
 end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
