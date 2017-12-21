@@ -15,6 +15,17 @@
                   <%= link_to "list yourself now!" , new_hosting_path,class: "btn btn-large btn-realto head-message" %> 
                   <!-- <p><%= link_to "List your event now!" , new_event_path,class: "btn btn-large btn-realto span3 header-cta" %> </p> -->
                 
+                      </div>
+                <div class="span3">
+                  <div class="search-form">
+        
+        
+   <!-- <body>
+    <video id="bgVideo" autoplay loop poster="image.png">
+      <!-- Video is embedded in the WEBM format -->
+    <!--<source src="video.webm" type="video/webm">
+    </video>
+  </body> --> 
    
                     <p> Search hospitable people by Country. </p>
                     
@@ -46,6 +57,7 @@
 <div id="latest-properties">
   <div class="container">
     <div class="row">
+      <p><%= link_to "View all hosts" ,search_hostings_path,class: "pull-right btn btn-realto span3" %> </p>
       <div class="span12">
         <h2 class="secion-title"><mark>Hospitable people near you: </mark></h2>
       <div class="carousel-navigation pull-right">
@@ -209,23 +221,7 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="span4 box-container">
-      <div class="row adv-message clearfix">
-        <div class="pull-left span7">
-          <p class="secion-title bold">Still looking? Look a little more...</p>
-          <p class="lower-line">.</p>
-        </div>
-        <!-- .pull-left -->
 
-        <p><%= link_to "View all hosts" ,search_hostings_path,class: "pull-right btn btn-realto span3" %> </p>
-
-      </div>
-      <!-- .adv-message  -->
-    </div>
-  </div>
-</div>
 <!--<div class="container">
   <div class="row">
     <div class="span8">
@@ -326,4 +322,20 @@
   </div>
 </div>
  
- 
+   <div class="container">
+  <div class="row">
+    <div class="span4 box-container">
+      <div class="row adv-message clearfix">
+        <div class="pull-left span7">
+          <p class="secion-title bold">Still looking?.</p>
+          <p class="lower-line">.</p>
+        </div>
+        <!-- .pull-left -->
+
+        <p><%= link_to "View all hosts" ,search_hostings_path,class: "pull-right btn btn-realto span3" %> </p>
+
+      </div>
+      <!-- .adv-message  -->
+    </div>
+  </div>
+</div>    
