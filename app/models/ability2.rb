@@ -1,27 +1,27 @@
-class Ability
-  include CanCan::Ability
+#class Ability
+ # include CanCan::Ability
 
-  def initialize(user)
+  #def initialize(user)
 
-  	if user.admin?
+  #	if user.admin?
 
-  		can :update, Hosting do |hosting| 
-  			hosting.user == user
-  		end
+  #		can :update, Hosting do |hosting| 
+  #			hosting.user == user
+  #		end
 
-  		can :destroy, Hosting do |hosting| 
-  			hosting.user == user
-  		end
+  #		can :destroy, Hosting do |hosting| 
+  #			hosting.user == user
+  #		end
 
-  		can :destroy, Comment do |comment| 
-  			comment.user == user
-  		end
+  #		can :destroy, Comment do |comment| 
+  #			comment.user == user
+  #		end
 
-  	else
+  #	else
 
-  		can :create, Hosting
-  		can :create, Comment
+  #		can :create, Hosting
+  #		can :create, Comment
 
-  end
-end
+  #end
+#end
 end
