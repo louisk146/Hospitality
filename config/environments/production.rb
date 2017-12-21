@@ -1,4 +1,11 @@
 Rails.application.configure do
+  
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+if ENV["RAILS_LOG_TO_STDOUT"].present?
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger = ActiveSupport::TaggedLogging.new(logger)
+end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -36,8 +43,7 @@ Rails.application.configure do
   config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.assets.compile = true
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
